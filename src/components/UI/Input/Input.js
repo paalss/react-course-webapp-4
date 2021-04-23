@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Input.module.css";
 
 const Input = ({
-  className,
+  isValid,
   id,
   type,
   label,
@@ -13,7 +13,9 @@ const Input = ({
 }) => {
   return (
     <div
-      className={className}
+      className={`${classes.control} ${
+        isValid === false ? classes.invalid : ""
+      }`}
     >
       <label htmlFor={id}>{label}</label>
       <input
