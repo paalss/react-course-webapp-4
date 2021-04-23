@@ -96,14 +96,18 @@ const Login = (props) => {
     } else {
       passwordInputRef.current.focus();
     }
+    authCtx.onLogin(emailState.value, passwordState.value); // <---
   };
 
+  console.warn("login.js");
+  console.log(emailInputRef.current);
+  console.log(emailInputRef.isValid);
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
         <Input
           ref={emailInputRef}
-          isValid={emailIsValid}
+          isValid={emailState.isValid} // <---
           id="email"
           type="email"
           label="E-mail"
@@ -113,7 +117,7 @@ const Login = (props) => {
         />
         <Input
           ref={passwordInputRef}
-          isValid={passwordIsValid}
+          isValid={passwordState.isValid} // <---
           id="password"
           type="password"
           label="Password"

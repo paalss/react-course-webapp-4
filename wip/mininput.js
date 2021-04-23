@@ -4,6 +4,7 @@ import classes from "./Input.module.css";
 
 const Input = React.forwardRef(
   ({ isValid, id, type, label, value, onChange, onBlur }, ref) => {
+    console.warn("input.js ", ref);
     const inputRef = useRef();
 
     const activate = () => {
@@ -23,7 +24,7 @@ const Input = React.forwardRef(
       >
         <label htmlFor={id}>{label}</label>
         <input
-          ref={inputRef}
+          // + ref={inputRef} <--- 
           id={id}
           type={type}
           value={value}
