@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 // default context. For bedre autocompletion
 const AuthContext = createContext({
   isLoggedIn: false,
@@ -27,14 +27,14 @@ export const AuthContextProvider = ({ children }) => {
     setIsLoggedIn(true);
   };
 
+  const ctx = useMemo(() => ({
+    isLoggedIn: isLoggedIn,
+    onLogout: logoutHandler,
+    onLogin: loginHandler,
+  }), [isLoggedIn]);
+
   return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn: isLoggedIn,
-        onLogout: logoutHandler,
-        onLogin: loginHandler,
-      }}
-    >
+    <AuthContext.Provider value={ctx}>
       {children}
     </AuthContext.Provider>
   );
