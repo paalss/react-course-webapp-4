@@ -2,9 +2,9 @@
 npm install
 npm start
 ```
+Tema:\
+useEffect, useReduce, React context og useContext
 
-Oppgave:
+Lagde en app som setter igang input validering så snart brukeren har tatt en «tastepause». Samler sammen lignende states i en reducer. Gjør properties tilgjengelig for alle children components med React context. Skulle også ordne slik at hvis man pårøver å logge inn mens et av input-feltene er ugyldige, vil input-feltet få focus.
 
-Samle sammen password states med en usereducer, slik som med email
-
-![image](public/logo192.png)
+![forhåndskode](public/app-2021-04-21-forhandskode.png)
